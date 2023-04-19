@@ -4,7 +4,13 @@ require 'bundler/setup'
 require 'test/unit'
 require 'test/unit/rr'
 
+static_initializer = Java::org.embulk.EmbulkDependencyClassLoader.staticInitializer().useSelfContainedJarFiles()
+
+static_initializer.java_send :initialize
+
+require 'embulk/java/bootstrap'
 require 'embulk'
+
 begin
   # Embulk ~> 0.8.x
   Embulk.setup

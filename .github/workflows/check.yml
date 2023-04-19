@@ -28,8 +28,10 @@ jobs:
       run: "curl --create-dirs -o embulk.jar https://github.com/embulk/embulk/releases/download/v0.10.49/embulk-0.10.49.jar"
 #    - name: chmod embulk
 #      run: "chmod 755 ~/.embulk/bin/embulk"
+#    - name: rake test
+#      run: 'RUBY_OPTS="-r ./embulk.jar" rake test'
     - name: rake test
-      run: 'RUBY_OPTS="-r ./embulk.jar" rake test'
+      run: bundle exec env RUBYOPT="-r ./embulk.jar  -r embulk -r embulk/java/bootstrap" rake test
 
 
 #    - name: Check
