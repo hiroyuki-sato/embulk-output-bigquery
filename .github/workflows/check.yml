@@ -25,7 +25,7 @@ jobs:
       run: bundle install
     - name: install embulk
 #      run: "curl --create-dirs -o ~/.embulk/bin/embulk https://github.com/embulk/embulk/releases/download/v0.10.49/embulk-0.10.49.jar"
-      run: "curl --create-dirs -o embulk.jar https://github.com/embulk/embulk/releases/download/v0.10.49/embulk-0.10.49.jar"
+      run: "curl -L -o embulk.jar https://github.com/embulk/embulk/releases/download/v0.10.49/embulk-0.10.49.jar"
 #    - name: chmod embulk
 #      run: "chmod 755 ~/.embulk/bin/embulk"
 #    - name: rake test

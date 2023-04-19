@@ -4,10 +4,9 @@ require 'bundler/setup'
 require 'test/unit'
 require 'test/unit/rr'
 
-$CLASSPATH << File.expand_path("../../embulk.jar",__FILE__)
+#$CLASSPATH << File.expand_path("../../embulk.jar",__FILE__)
 puts '*************** CLASSPATH *******'
 puts $CLASSPATH
-static_initializer = Java::org.embulk.EmbulkDependencyClassLoader.staticInitializer()
 static_initializer = Java::org.embulk.EmbulkDependencyClassLoader.staticInitializer().useSelfContainedJarFiles()
 
 static_initializer.java_send :initialize
