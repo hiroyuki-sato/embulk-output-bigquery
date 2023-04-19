@@ -4,9 +4,12 @@ require 'bundler/setup'
 require 'test/unit'
 require 'test/unit/rr'
 
+putst '*************** CLASSPATH *******'
+puts $CLASSPATH
 static_initializer = Java::org.embulk.EmbulkDependencyClassLoader.staticInitializer().useSelfContainedJarFiles()
 
 static_initializer.java_send :initialize
+puts '************** CHECK ***************'
 
 require 'embulk/java/bootstrap'
 require 'embulk'
