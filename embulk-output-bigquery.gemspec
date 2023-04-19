@@ -14,8 +14,10 @@ Gem::Specification.new do |spec|
   spec.test_files    = spec.files.grep(%r{^(test|spec)/})
   spec.require_paths = ["lib"]
 
-  spec.add_dependency 'thwait', '> 0'
-  spec.add_dependency 'google-api-client','= 0.53.0'
+  spec.add_dependency 'google-api-client','~> 0.53.0'
+  spec.add_dependency 'thwait', '~> 0.2.0'
+  spec.add_dependency 'time_with_zone'
+  spec.add_dependency "representable", ['~> 3.0.0', '< 3.1']
 
   spec.add_development_dependency 'embulk', '> 0.10.0'
   spec.add_development_dependency 'bundler', ['>= 1.10.6']
