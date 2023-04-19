@@ -15,7 +15,6 @@ jobs:
       with:
         java-version: 8
         distribution: "temurin"
-        cache: "gradle"
     - uses: ruby/setup-ruby@v1
       with:
         ruby-version: 'jruby-9.4.2.0' # Not needed with a .ruby-version file
