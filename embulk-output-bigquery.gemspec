@@ -17,6 +17,7 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'thwait', '> 0'
   spec.add_dependency 'google-api-client','= 0.53.0'
 
+  spec.add_development_dependency 'embulk', '> 0.10.0'
   spec.add_development_dependency 'bundler', ['>= 1.10.6']
   spec.add_development_dependency 'rake', ['>= 10.0']
 end
