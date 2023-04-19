@@ -20,6 +20,7 @@ jobs:
         ruby-version: 'jruby-9.4.2.0' # Not needed with a .ruby-version file
         bundler-cache: true
     - run: ruby -v
+    - run: bundle install
 
 #    - name: Check
 #      run: ./gradlew --stacktrace check
