@@ -19,8 +19,14 @@ jobs:
       with:
         ruby-version: 'jruby-9.4.2.0' # Not needed with a .ruby-version file
         bundler-cache: true
-    - run: ruby -v
-    - run: bundle install
+    - name: show ruby version
+      run: ruby -v
+    - name: bundle install
+      run: bundle install
+    - name: install embulk
+      run: "curl --create-dirs -o ~/.embulk/bin/embulk https://github.com/embulk/embulk/releases/download/v0.10.49/embulk-0.10.49.jar"
+    - name: chmod embulk
+      run: "chmod 755 ~/.embulk/bin/embulk"
 
 #    - name: Check
 #      run: ./gradlew --stacktrace check
