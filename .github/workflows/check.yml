@@ -31,7 +31,8 @@ jobs:
 #    - name: rake test
 #      run: 'RUBY_OPTS="-r ./embulk.jar" rake test'
     - name: rake test
-      run: bundle exec env RUBYOPT="-r ./embulk.jar  -r embulk -r embulk/java/bootstrap" rake test
+#      run: bundle exec env RUBYOPT="-r ./embulk.jar  -r embulk -r embulk/java/bootstrap" rake test
+      run: bundle exec env RUBYOPT="-r ./embulk.jar" rake test
 
 
 #    - name: Check
