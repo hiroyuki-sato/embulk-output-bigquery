@@ -26,7 +26,11 @@ jobs:
     - name: show ruby version
       run: ruby -v
     - name: bundle install
-      run: bundle install --development
+      run: bundle install
+    - name: gem list
+      run: gem list
+    - name: cat Gemfile.lock
+      run: cat Gemfile.lock
     - name: install embulk.jar
       run: "curl -L -o embulk.jar https://github.com/embulk/embulk/releases/download/v0.10.49/embulk-0.10.49.jar"
     - name: rake test
