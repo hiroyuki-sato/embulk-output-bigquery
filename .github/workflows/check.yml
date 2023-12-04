@@ -28,7 +28,7 @@ jobs:
     - name: bundle install
       run: bundle install
     - name: gem install rake -v 13.1.0
-      run: gem list
+      run: gem install rake -v 13.1.0
     - name: gem list
       run: gem list
     - name: cat Gemfile.lock
