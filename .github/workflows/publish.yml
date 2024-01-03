@@ -1,0 +1,38 @@
+name: Publish
+on:
+  push:
+    tags:
+      - "v0.*"
+jobs:
+  publish:
+#    environment:
+#      name: maven-central-and-ruby-gems
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: true
+    steps:
+    - uses: actions/checkout@v4
+    - name: Set up Ruby
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby: 3.3.0
+    - name: build gem
+      run: |
+        rake build
+    - name: test ls
+      run: |
+        ls pkg/*
+#        gem push pkg/embulk-output-bigquery-${VERSION}.gem
+    - name: Publish
+      run: |
+        mkdir -p $HOME/.gem
+        touch $HOME/.gem/credentials
+        chmod 0600 $HOME/.gem/credentials
+        printf -- "---\n:rubygems_api_key: ${RUBYGEMS_API_KEY}\n" > $HOME/.gem/credentials
+#        gem push pkg/embulk-output-bigquery-${VERSION}.gem
+      env:
+#        ORG_GRADLE_PROJECT_ossrhUsername: ${{ secrets.OSSRH_USERNAME }}
+#        ORG_GRADLE_PROJECT_ossrhPassword: ${{ secrets.OSSRH_PASSWORD }}
+#        ORG_GRADLE_PROJECT_signingKey: ${{ secrets.GPG_PRIVATE_KEY_ARMOR }}
+#        ORG_GRADLE_PROJECT_signingPassword: ${{ secrets.GPG_PRIVATE_KEY_PASSWORD }}
+        RUBYGEMS_API_KEY: "${{secrets.RUBYGEMS_API_KEY}}"
